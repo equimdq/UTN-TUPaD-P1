@@ -1,9 +1,9 @@
 # Definición de funciones
-def leer_entero_validado(mensaje):
+def leer_entero_validado(mensaje, min=float('-inf'), max=float('inf')):
     n = int(input(f"{mensaje}: "))
-    # Validar que el número sea un entero positivo
-    while n < 1:
-        n = int(input(f"ERROR. {mensaje}"))
+    while n < min or n > max:
+        print(f"ERROR. Debe ingresar un número entre {min} y {max}.")
+        n = int(input(f"{mensaje}: "))
     return n
 
 def obtener_resto(num1, num2):
@@ -29,3 +29,12 @@ def informar_si_numero_es_perfecto(numero):
         print(f"El número {numero} es perfecto.")
     else:
         print(f"El número {numero} no es perfecto.")
+
+def imprimir_simbolos(simbolo, veces):
+    print( sucesion_simbolos(simbolo, veces) )
+
+def sucesion_simbolos(simbolo, veces):
+    sucesion = ""
+    for i in range(veces):
+        sucesion += simbolo # Se corrige el nombre de la variable
+    return sucesion
